@@ -1,0 +1,37 @@
+ion-card {
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-title {
+    color: #333;
+    font-size: 1.2em;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.gray-color {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.value_lines {
+    border-bottom: 1px solid #ddd;
+}
+
+.year,
+.win-count {
+    color: #555;
+}
+
+skeleton {
+    color: #888;
+    font-style: italic;
+}
+
+ion-card-subtitle {
+  color: #333;
+  font-weight: bold;
+  padding: 10px 0;
+}

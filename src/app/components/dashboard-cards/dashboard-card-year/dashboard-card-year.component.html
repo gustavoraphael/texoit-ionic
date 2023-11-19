@@ -1,0 +1,41 @@
+<ion-card class="ion-padding">
+  <ion-title class="ion-no-padding" color="dark">
+    <div class="ion-text-wrap">
+      List years with multiple winners
+    </div>
+  </ion-title>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="gray-color">
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Year
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Win Count
+        </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="yearsWithMultipleWinners.length">
+      <ion-row *ngFor="let item of yearsWithMultipleWinners" class="value_lines">
+        <ion-col class="custom-padding year">
+          {{item.year}}
+        </ion-col>
+        <ion-col class="custom-padding win-count">
+          {{item.winnerCount}}
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="!yearsWithMultipleWinners.length">
+      <ion-row *ngFor="let item of [0, 1, 2]" class="value_lines">
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-card>

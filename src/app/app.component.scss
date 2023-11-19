@@ -1,0 +1,53 @@
+ion-menu ion-content {
+    --background: var(--ion-color-light);
+  }
+  
+  ion-menu.md ion-content {
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+  }
+  
+  ion-menu.md ion-list {
+    padding: 20px 0;
+    background: transparent;
+  }
+  
+  ion-menu.md ion-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-radius: 4px;
+    --background: transparent;
+  }
+  
+  ion-menu.md ion-item ion-label {
+    font-weight: 500;
+  }
+  
+  ion-menu.ios ion-content {
+    --padding-bottom: 20px;
+  }
+  
+  ion-menu.ios ion-list {
+    padding: 20px 0 0 0;
+    background: transparent;
+  }
+  
+  ion-menu.ios ion-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 50px;
+    --background: transparent;
+  }
+  
+  ion-item.selected {
+    --color: var(--ion-color-primary);
+  }
+  
+  ion-split-pane {
+    --side-width: 350px;
+    --side-max-width: 350px;
+    margin-top: 3.5rem;
+  }
+  

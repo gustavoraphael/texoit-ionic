@@ -1,0 +1,69 @@
+<ion-row>
+  <ion-col size="12">
+    <ion-card class="ion-padding">
+      <ion-title class="ion-no-padding" color="dark">
+        List movies
+      </ion-title>
+      <ion-grid class="ion-no-padding">
+        <ion-row class="gray-color ion-text-center ion-align-items-center">
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              ID
+            </ion-card-subtitle>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Year
+            </ion-card-subtitle>
+            <ion-searchbar (ionChange)="filter($event, false)" mode="ios" placeholder="Filter by year"></ion-searchbar>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Title
+            </ion-card-subtitle>
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="custom-padding" color="dark">
+              Winner?
+            </ion-card-subtitle>
+            <ion-select id="filter-winner" (ionChange)="filter($event, true)" mode="ios">
+              <ion-select-option [value]="true">Yes</ion-select-option>
+              <ion-select-option [value]="false">No</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="pageData?.length">
+          <ion-row class="value_lines"
+            *ngFor="let item of pageData | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: totalElements}">
+            <ion-col class="custom-padding col-results">
+              {{item.id}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.year}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.title}}
+            </ion-col>
+            <ion-col class="custom-padding col-results">
+              {{item.winner ? 'Yes' : 'No'}}
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngIf="!pageData?.length">
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12" class="ion-text-center">
+              <p>No movies found.</p>
+            </ion-col>
+          </ion-row>
+        </div>
+
+
+        <pagination-controls class="paginator" previousLabel="Prev" nextLabel="Next"
+          (pageChange)="onChange($event)"></pagination-controls>
+      </ion-grid>
+
+    </ion-card>
+  </ion-col>
+</ion-row>

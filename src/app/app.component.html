@@ -1,0 +1,29 @@
+<ion-app *ngIf="showApp">
+  <header></header>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+<ion-content *ngIf="!showApp">
+  <ion-text class="ion-text-center ion-margin">
+    <h1>
+      Atenção!
+    </h1>
+    <h3>
+      Para utilizar essa aplicação, o tamanho mínimo de tela é <b>768x1280</b>
+    </h3>
+    <h4>Obrigado!</h4>
+  </ion-text>
+
+</ion-content>

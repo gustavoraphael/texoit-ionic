@@ -1,0 +1,135 @@
+<ion-card class="ion-padding">
+  <ion-title class="ion-no-padding ion-padding-bottom" color="dark">
+    <div class="ion-text-wrap">
+      Producers with longest and shortest interval between wins
+    </div>
+  </ion-title>
+
+  <ion-title class="ion-no-padding" color="dark">
+    <div class="ion-text-wrap">
+      Maximum
+    </div>
+  </ion-title>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="gray-color">
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Producer
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Interval
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Previous Year
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Following Year
+        </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="intervalProducers?.max?.length">
+      <div class="max-producer">
+        <ion-row *ngFor="let item of intervalProducers?.max" class="value_lines">
+          <ion-col class="custom-padding">
+            {{item.producer}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.interval}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.previousWin}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.followingWin}}
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngIf="!intervalProducers?.max?.length">
+      <ion-row *ngFor="let item of [0]" class="value_lines">
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+
+  <ion-title class="ion-no-padding ion-padding-top" color="dark">
+    <div class="ion-text-wrap">
+      Minimum
+    </div>
+  </ion-title>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="gray-color">
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Producer
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Interval
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Previous Year
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Following Year
+        </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="intervalProducers?.min?.length">
+      <div class="min-producer">
+        <ion-row *ngFor="let item of intervalProducers?.min" class="value_lines">
+          <ion-col class="custom-padding">
+            {{item.producer}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.interval}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.previousWin}}
+          </ion-col>
+          <ion-col class="custom-padding">
+            {{item.followingWin}}
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngIf="!intervalProducers?.min?.length">
+      <ion-row *ngFor="let item of [0]" class="value_lines">
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-card>

@@ -1,0 +1,17 @@
+.button-search {
+    margin-top: 15px;
+    margin-left: -10px;
+}
+
+cdk-virtual-scroll-viewport {
+    height: 100px;
+    width: 100%;
+}
+
+.button-search-left {
+    float: left;
+}
+ion-title {
+   text-overflow: unset !important;
+   white-space: unset !important;
+}

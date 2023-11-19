@@ -1,0 +1,61 @@
+<ion-card class="ion-padding">
+  <ion-title class="ion-no-padding" color="dark">
+  <div class="ion-text-wrap">
+    List movie winners by year
+  </div>
+  </ion-title>
+  <ion-row>
+    <ion-col size="11">
+      <ion-searchbar (ionChange)="selectYearChanging($event)" mode="ios"
+        placeholder="Search by year"></ion-searchbar>
+    </ion-col>
+    <ion-col size="1">
+      <ion-button size="small" class="button-search" (click)="searchByYear()">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="gray-color">
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Id
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Year
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col>
+        <ion-card-subtitle class="custom-padding" color="dark">
+          Title
+        </ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of winnersByYear" class="value_lines">
+      <ion-col class="custom-padding">
+        {{item.id}}
+      </ion-col>
+      <ion-col class="custom-padding">
+        {{item.year}}
+      </ion-col>
+      <ion-col class="custom-padding">
+        {{item.title}}
+      </ion-col>
+    </ion-row>
+    <div *ngIf="!winnersByYear.length && searchClicked">
+      <ion-row *ngFor="let item of [0, 1]" class="value_lines">
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+        <ion-col class="custom-padding">
+          <skeleton></skeleton>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-card>

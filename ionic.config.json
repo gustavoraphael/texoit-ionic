@@ -1,0 +1,7 @@
+{
+  "name": "texoit-teste-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
