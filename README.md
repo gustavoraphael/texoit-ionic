@@ -20,11 +20,11 @@ No terminal, clone o repositório com o seguinte comando:
 git clone https://github.com/gustavoraphael/texoit-ionic.git
 ```
 
-Depois de concluir o download, acesse o diretório do projeto (cd texo_project) e execute o comando npm run config:start. Este comando vai instalar todas as dependências necessárias e iniciar o servidor de desenvolvimento em http://localhost:4200. Você pode abrir este endereço no navegador para visualizar a aplicação.
+Depois de concluir o download, acesse o diretório do projeto (cd texoit-ionic) e execute o comando npm run config:start. Este comando vai instalar todas as dependências necessárias e iniciar o servidor de desenvolvimento em http://localhost:4200. Você pode abrir este endereço no navegador para visualizar a aplicação.
 
 ## Execução do Projeto
 
-Para iniciar uma sessão de desenvolvimento com o projeto previamente configurado, navegue até a pasta do projeto e execute npm start.
+Para iniciar uma sessão de desenvolvimento com o projeto previamente configurado, navegue até a pasta do projeto e execute `npm start`.
 
 Se desejar instalar as dependências e iniciar o projeto em sequência, utilize o comando npm run config:start e depois acesse http://localhost:4200.
 
