@@ -5,121 +5,153 @@ ion-select {
     --padding-top: 5px;
     --padding-bottom: 5px;
     --border-radius: 4px;
-    --background: #fff; /* Fundo branco para o dropdown */
-    --border-color: #ccc; /* Borda sutil para o dropdown */
+    --background: #fff;
+    /* Fundo branco para o dropdown */
+    --border-color: #ccc;
+    /* Borda sutil para o dropdown */
     --border-style: solid;
     --border-width: 1px;
-    --placeholder-color: #888; /* Cor do placeholder */
+    --placeholder-color: #888;
+    /* Cor do placeholder */
     --placeholder-font-style: italic;
-    --color: #333; /* Cor do texto selecionado */
-    --icon-color: #333; /* Cor do ícone de dropdown */
+    --color: #333;
+    /* Cor do texto selecionado */
+    --icon-color: #333;
+    /* Cor do ícone de dropdown */
 }
 
 /* Customização das ion-select-option */
 ion-select-option {
---color: #333; /* Cor do texto das opções */
---ion-item-background-hover: #f0f0f0; /* Cor de fundo ao passar o mouse */
+    --color: #333;
+    /* Cor do texto das opções */
+    --ion-item-background-hover: #f0f0f0;
+    /* Cor de fundo ao passar o mouse */
 }
-  
-
 
 /* Estilização dos labels e cabeçalhos */
 ion-card-subtitle {
-    color: #333; /* Cor mais escura para melhor contraste */
-    font-weight: bold; /* Tornar o texto negrito para maior legibilidade */
+    color: #333;
+    /* Cor mais escura para melhor contraste */
+    font-weight: bold;
+    /* Tornar o texto negrito para maior legibilidade */
 }
 
 /* Estilização da barra de pesquisa */
 ion-searchbar {
---placeholder-opacity: 1; /* Tornar o placeholder totalmente opaco */
---placeholder-color: #333; /* Cor mais escura para o texto do placeholder */
---icon-color: #333; /* Cor mais escura para o ícone de pesquisa */
---color: #333; /* Cor do texto digitado */
+    --placeholder-opacity: 1;
+    /* Tornar o placeholder totalmente opaco */
+    --placeholder-color: #333;
+    /* Cor mais escura para o texto do placeholder */
+    --icon-color: #333;
+    /* Cor mais escura para o ícone de pesquisa */
+    --color: #333;
+    /* Cor do texto digitado */
 }
 
 /* Ajustar a cor do texto dentro do ion-select */
 ion-select {
---placeholder-color: #333; /* Cor do placeholder */
---color: #333; /* Cor do texto selecionado */
+    --placeholder-color: #333;
+    /* Cor do placeholder */
+    --color: #333;
+    /* Cor do texto selecionado */
 }
 
 /* Estilização do ion-select-option para melhor contraste */
 ion-select-option {
---color-checked: #000; /* Cor do texto quando a opção está selecionada */
---opacity: 1; /* Opacidade total para todas as opções */
+    --color-checked: #000;
+    /* Cor do texto quando a opção está selecionada */
+    --opacity: 1;
+    /* Opacidade total para todas as opções */
 }
 
 /* Ajuste do placeholder do ion-searchbar para melhor visibilidade */
 ::placeholder {
-color: #333;
-opacity: 1; /* Placeholder totalmente visível */
+    color: #333;
+    opacity: 1;
+    /* Placeholder totalmente visível */
 }
 
-  
+
 /* Estilização do cartão */
 ion-card {
-    background: #f4f4f4; /* Cor de fundo clara */
+    background: #f4f4f4;
+    /* Cor de fundo clara */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para o cartão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para o cartão */
 }
 
 /* Cabeçalho da lista */
 ion-title {
-color: #333; /* Cor escura para o título */
-font-size: 1.2em;
-padding-bottom: 15px;
-border-bottom: 1px solid #ddd; /* Linha de separação sutil */
+    color: #333;
+    /* Cor escura para o título */
+    font-size: 1.2em;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    /* Linha de separação sutil */
 }
 
 /* Estilização da linha do cabeçalho */
 .gray-color {
-background-color: #e0e0e0; /* Cor de fundo para a linha do cabeçalho */
+    background-color: #e0e0e0;
+    /* Cor de fundo para a linha do cabeçalho */
 }
 
 /* Estilização dos resultados */
 .value_lines {
-border-bottom: 1px solid #ddd; /* Linha de separação entre linhas */
+    border-bottom: 1px solid #ddd;
+    /* Linha de separação entre linhas */
 }
 
 /* Cor do texto para os itens da lista */
 .col-results {
-color: #555;
+    color: #555;
 }
 
 /* Mensagem quando não há dados */
 p {
-color: #888; /* Cor de texto mais suave */
-font-style: italic;
+    color: #888;
+    /* Cor de texto mais suave */
+    font-style: italic;
 }
 
 /* Estilização da paginação */
 .paginator {
---padding-start: 0;
---padding-end: 0;
-justify-content: center; /* Centraliza a paginação */
-margin-top: 20px; /* Espaçamento no topo */
+    --padding-start: 0;
+    --padding-end: 0;
+    justify-content: center;
+    /* Centraliza a paginação */
+    margin-top: 20px;
+    /* Espaçamento no topo */
 }
 
 .pagination-controls {
-color: #555; /* Cor dos controles de paginação */
+    color: #555;
+    /* Cor dos controles de paginação */
 }
 
 /* Ajustes para o ion-searchbar */
 ion-searchbar {
---background: #fff; /* Fundo branco para a barra de pesquisa */
---placeholder-color: #999; /* Cor do placeholder */
---icon-color: #333; /* Cor do ícone de pesquisa */
---color: #333; /* Cor do texto */
+    --background: #fff;
+    /* Fundo branco para a barra de pesquisa */
+    --placeholder-color: #999;
+    /* Cor do placeholder */
+    --icon-color: #333;
+    /* Cor do ícone de pesquisa */
+    --color: #333;
+    /* Cor do texto */
 }
 
 /* Botões de seleção */
 ion-select {
---placeholder-color: #999; /* Cor do placeholder */
---color: #333; /* Cor do texto */
+    --placeholder-color: #999;
+    /* Cor do placeholder */
+    --color: #333;
+    /* Cor do texto */
 }
 
-/* Opções de seleção */
-ion-select-option {
---color-selected: #5cb85c; /* Cor quando selecionado */
+.clear-filter-button {
+    --min-height: 40px;
+    /* Ajuste para corresponder à altura do ion-select */
+    --border-radius: 4px;
 }
-  

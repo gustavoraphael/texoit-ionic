@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ProducerAwardIntervalDTO } from 'src/app/models/producer-award-interval.dto';
@@ -18,7 +18,7 @@ export class DashboardCardsComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private api: ApiService) { }
+  constructor(private api: DashboardService) { }
 
   ngOnInit() {
     this.getYearsWithWinners();
@@ -27,13 +27,13 @@ export class DashboardCardsComponent implements OnInit, OnDestroy {
   }
 
   private getYearsWithWinners() {
-    this.api.get('?projection=years-with-multiple-winners')
+    this.api.getYearsWithWinners()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: YearWinnerCountList) => this.yearsWithMultipleWinners = data?.years);
   }
 
   private getStudiosWithWinners() {
-    this.api.get('?projection=studios-with-win-count')
+    this.api.getStudiosWithWinners()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: { studios: StudioWinCount[] }) => {
           this.studiosWithWinners = data.studios.slice(0, 3);
@@ -41,7 +41,7 @@ export class DashboardCardsComponent implements OnInit, OnDestroy {
   }
 
   private getIntervalProducers() {
-    this.api.get('?projection=max-min-win-interval-for-producers')
+    this.api.getIntervalProducers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: ProducerAwardIntervalDTO) => this.intervalProducers = data);
   }

@@ -10,6 +10,7 @@ import { DashboardCardStudioComponent } from "./dashboard-cards/dashboard-card-s
 import { DashboardCardProducerComponent } from "./dashboard-cards/dashboard-card-producer/dashboard-card-producer.component";
 import { DashboardCardListComponent } from "./dashboard-cards/dashboard-card-list/dashboard-card-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,7 @@ import { NgxPaginationModule } from "ngx-pagination";
         DashboardCardProducerComponent,
         DashboardCardListComponent,
     ],
-    imports: [IonicModule, CommonModule, NgxPaginationModule],
+    imports: [IonicModule, CommonModule, NgxPaginationModule,  FormsModule],
     exports: [
         HeaderComponent,
         DashboardCardsComponent,

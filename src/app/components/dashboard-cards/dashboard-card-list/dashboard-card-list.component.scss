@@ -40,6 +40,22 @@ ion-title {
 
 .custom-padding {
     color: #555;
+    margin-left: 5px;
+}
+
+/* Estilização da paginação */
+.paginator {
+    --padding-start: 0;
+    --padding-end: 0;
+    justify-content: center;
+    /* Centraliza a paginação */
+    margin-top: 20px;
+    /* Espaçamento no topo */
+}
+
+.pagination-controls {
+    color: #555;
+    /* Cor dos controles de paginação */
 }
 
 skeleton {

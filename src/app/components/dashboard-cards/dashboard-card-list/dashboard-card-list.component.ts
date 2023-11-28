@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { HelperService } from 'src/app/services/helper.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MovieDetail } from 'src/app/models/movie-detail.dto';
+import { PaginatedMoviesResponse } from 'src/app/models/paginated-movies-response.dto';
 
 interface WinnerByYear {
-  // Estrutura esperada para cada vencedor (exemplo)
   id: number;
   title: string;
   year: number;
@@ -18,27 +17,50 @@ interface WinnerByYear {
   styleUrls: ['./dashboard-card-list.component.scss'],
 })
 export class DashboardCardListComponent implements OnInit, OnDestroy {
-  winnersByYear: WinnerByYear[] = [];
-  selectedYear: number = 2018;
+  selectedYear: string = '';
   searchClicked: boolean = false;
+  pageData: WinnerByYear[] = [];
+  currentPage = 1;
+  totalElements = 0;
+  totalPages = 0;
+  pageSize = 10;
+  selectedWinner: boolean | null = null;
 
   private destroy$ = new Subject<void>();
 
-  constructor(private api: ApiService, private helper: HelperService) { }
+  constructor(private api: DashboardService, private helper: HelperService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.getMovies(); }
 
   public searchByYear() {
-    this.searchClicked = true;
-    this.api.get(`?winner=true&year=${this.selectedYear}`)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data: MovieDetail[]) => {
-        this.winnersByYear = data;
-        if (data.length === 0) {
-          this.helper.message("Sorry, this year doesn't have a movie", 3000, 'warning');
-        }
-        this.searchClicked = false;
-      });
+    if (this.selectedYear && !/^\d+$/.test(this.selectedYear)) {
+      this.helper.message("Search must be a number", 3000, 'warning');
+      return;
+    }
+    this.getMovies();
+  }
+
+  private getMovies(): void {
+    try {
+      const page = this.currentPage - 1;
+      this.api.list(page, this.pageSize, this.selectedYear)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data: PaginatedMoviesResponse) => {
+          if (data.content.length === 0) {
+            this.helper.message("Sorry, this year doesn't have a movie", 3000, 'warning');
+          }
+          this.pageData = data.content;
+          this.totalPages = data.totalPages;
+          this.totalElements = data.totalElements;
+        });
+    } catch (e) {
+      this.helper.message("Error on get movie list", 3000, 'warning')
+    }
+  }
+
+  public onChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.getMovies();
   }
 
   public selectYearChanging(ev: any) {

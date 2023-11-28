@@ -6,31 +6,36 @@
       </ion-title>
       <ion-grid class="ion-no-padding">
         <ion-row class="gray-color ion-text-center ion-align-items-center">
-          <ion-col>
+          <ion-col size="3">
             <ion-card-subtitle class="custom-padding" color="dark">
               ID
             </ion-card-subtitle>
           </ion-col>
-          <ion-col>
+          <ion-col size="3">
             <ion-card-subtitle class="custom-padding" color="dark">
               Year
             </ion-card-subtitle>
             <ion-searchbar (ionChange)="filter($event, false)" mode="ios" placeholder="Filter by year"></ion-searchbar>
           </ion-col>
-          <ion-col>
+          <ion-col size="3">
             <ion-card-subtitle class="custom-padding" color="dark">
               Title
             </ion-card-subtitle>
           </ion-col>
-          <ion-col>
+          <ion-col size="3">
             <ion-card-subtitle class="custom-padding" color="dark">
               Winner?
             </ion-card-subtitle>
-            <ion-select id="filter-winner" (ionChange)="filter($event, true)" mode="ios">
-              <ion-select-option [value]="true">Yes</ion-select-option>
-              <ion-select-option [value]="false">No</ion-select-option>
-            </ion-select>
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+              <ion-select id="filter-winner" (ionChange)="filter($event, true)" [(ngModel)]="selectedWinner"
+                placeholder="Select One" mode="ios" style="max-width: 70%;">
+                <ion-select-option [value]="true">Yes</ion-select-option>
+                <ion-select-option [value]="false">No</ion-select-option>
+              </ion-select>
+              <ion-button (click)="clearWinnerFilter()" color="medium" style="max-width: 30%;">Clear</ion-button>
+            </div>
           </ion-col>
+
         </ion-row>
 
         <div *ngIf="pageData?.length">

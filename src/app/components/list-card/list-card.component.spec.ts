@@ -1,23 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { ListCardComponent } from './list-card.component';
-import { ApiService } from 'src/app/services/api.service';
+import { ListService } from 'src/app/services/list-card.service';
 import { of } from 'rxjs';
 import { NgxPaginationModule } from "ngx-pagination";
 
 describe('ListCardComponent', () => {
   let component: ListCardComponent;
   let fixture: ComponentFixture<ListCardComponent>;
-  let apiServiceSpy: jasmine.SpyObj<ApiService>;
+  let apiServiceSpy: jasmine.SpyObj<ListService>;
 
   beforeEach(async () => {
-    apiServiceSpy = jasmine.createSpyObj('ApiService', ['get']);
+    apiServiceSpy = jasmine.createSpyObj('ListService', ['get']);
 
     await TestBed.configureTestingModule({
       declarations: [ListCardComponent],
       imports: [IonicModule.forRoot(), NgxPaginationModule],
       providers: [
-        { provide: ApiService, useValue: apiServiceSpy }
+        { provide: ListService, useValue: apiServiceSpy }
       ]
     }).compileComponents();
 

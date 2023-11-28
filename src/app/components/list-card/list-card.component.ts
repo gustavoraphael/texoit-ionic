@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { PaginatedMoviesResponse } from 'src/app/models/paginated-movies-response.dto';
-import { ApiService } from 'src/app/services/api.service';
 import { HelperService } from 'src/app/services/helper.service';
+import { ListService } from 'src/app/services/list-card.service';
 
 @Component({
   selector: 'list-card',
@@ -19,10 +19,11 @@ export class ListCardComponent implements OnInit {
   totalElements = 0;
   totalPages = 0;
   pageSize = 10;
+  selectedWinner: boolean | null = null;
   private destroy$ = new Subject<void>();
 
   constructor(
-    private api: ApiService,
+    private api: ListService,
     private helper: HelperService
   ) { }
 
@@ -41,7 +42,7 @@ export class ListCardComponent implements OnInit {
         queryParams += `&year=${this.selectedYear}`;
       }
   
-      this.api.get(queryParams)
+      this.api.get(page, this.pageSize, this.filterWinner, this.selectedYear)
         .pipe(takeUntil(this.destroy$))
         .subscribe((data: PaginatedMoviesResponse) => {
           this.pageData = data.content;
@@ -80,4 +81,11 @@ export class ListCardComponent implements OnInit {
     this.currentPage = pageNumber;
     this.getMovies();
   }
+
+  public clearWinnerFilter(): void {
+    this.filterWinner = null;
+    this.selectedWinner = null;
+    this.resetPaginationAndFetchMovies();
+  }
+
 }
